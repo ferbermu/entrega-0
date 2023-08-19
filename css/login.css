@@ -1,0 +1,19 @@
+body {
+    background-color: #caf0e2;
+}
+
+#login {
+    background-color: #F09100;
+    color: white;
+    border: none;
+}
+
+.half_or_full {
+    width: 40%;
+}
+
+@media only screen and (max-width: 600px) {
+    .half_or_full {
+        width: 100%;
+    }
+}
