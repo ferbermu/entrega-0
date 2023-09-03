@@ -2,8 +2,9 @@
 .card-body,
 .container,
 .site-header {
-  font-family: 'Verdana', serif !important;
+    font-family: 'Oswald', sans-serif sans-serif !important;  
 }
+
 
 .jumbotron .display-4 {
   font-weight: bold;
@@ -11,6 +12,11 @@
 
 nav a {
   text-decoration: none;
+}
+
+#userDisplay {
+  text-decoration: none;
+  color: white;
 }
 
 .bd-placeholder-img {
@@ -190,70 +196,113 @@ a.custom-card:hover {
 }
 
 
-h1.titulo-autos {
+#tituloProducto {
   font-family: 'Oswald', sans-serif;
   text-align: center;
   font-size: 53px;
 }
-p.parrafo-autos {
+p.parrafo-productos {
   text-align: center;
   font-size: 15px;
 }
 
-div .cuadrante{
-  height: 200px;
-  overflow: hidden;
-}
-#productos .cuadrante{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2%;
+#productos .cuadrante {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
   border: 1px solid #7C9082;
-    padding: 10px;
-    margin-top: 2%; 
-    transition: filter 0.3s;
-    
+  padding: 10px;
+  margin-top: 2%;
+  transition: filter 0.3s;
+  position: relative;
+  align-items: flex-start;
 }
 
-.cuadrante:hover {
-  filter: brightness(1.3); /* Brillantez aumentada al poner el mouse encima */
+#productos .cuadrante:hover {
+  filter: brightness(1.3);
 }
 
-#productos img{
-height: 180px; 
+#productos img {
+  height: auto;
+  max-height: 100%;
+  width: auto;
+  max-width: 30%;
+  margin-right: 10px;
+  box-sizing: border-box;
 }
 
-#productos h2{
+#productos .contenido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#productos h2 {
   font-family: 'Play', sans-serif;
-  margin-bottom: 10%;
+  margin: 5px 0 5px 0;
+  font-size: 24px;
+  max-height: 50px;
   white-space: nowrap;
-  font-size: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 5px;
 }
 
-
-
-div .vendidos{
-  margin: 0 0 0 auto;
-  color:#6c757d!important; 
-}
-div h2{
-  margin: 0;
-
-
+#productos .descripcion {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 10px;
+  flex-grow: 1;
 }
 
-p.descripcion{
-  height: 100px; 
-  width: 700px;
-  margin-top: -65px; 
-
+#productos .vendidos {
+  color: #6c757d!important;
+  align-self: flex-start;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 2px 5px;
+  font-size: 12px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  #productos .cuadrante {
+    width: 100%;
+    margin: 2% 0;
+  }
 
+  #productos .contenido {
+    align-items: flex-start;
+  }
+
+  #productos img {
+    max-height: 100%;
+    max-width: 100%;
+    margin-bottom: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
+  #productos .vendidos {
+    position: static;
+    align-self: flex-end;
+    margin-top: 5px;
+    margin-right: 5px;
+    transform: translate(0, 0);
+  }
+
+  #productos h2 {
+    font-size: 18px;
+  }
+}
 .responsive-lottie {
   display: block;
   max-width: 100%;
-  width: 100%; /* Establecer un ancho del 100% */
+  width: 100%; 
   height: 277.44px; 
   margin: 0 auto;
 }
@@ -263,4 +312,33 @@ p.descripcion{
   justify-content: center;
   height: 100%;
   
+}
+#menu > input {
+  width: 70%;
+  height: auto;
+  margin-left: 10px;
+}
+
+.Tamaño{
+  width: 25%;
+  height: 20%;
+  margin-right: 10px;
+}
+
+.Filtroprecio{
+  display: flex; 
+  align-items: center;
+
+}
+
+
+.jumbotron,
+.card-body,
+.container,
+.site-header {
+    font-family: 'Oswald',sans-serif !important;
+}
+
+#search{
+  margin-left: 10px;
 }

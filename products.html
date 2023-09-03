@@ -7,63 +7,119 @@
     <title>eMercado - Todo lo que busques está aquí</title>
     <link rel="icon" type="image/png" href="./img/favicon.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Baskerville&family=Oswald:wght@200;400&family=Play:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Baskerville&family=Oswald:wght@200;400&family=Play:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7b32b404d1.js" crossorigin="anonymous"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Baskerville&family=Oswald:wght@200;400&family=Play:wght@700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Baskerville&family=Oswald:wght@200;400&family=Play:wght@700&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    
+
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-      <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav w-100 justify-content-between">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="categories.html">Categorías</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sell.html">Vender</a>
-            </li>
-            <li class="nav-item">
-            </li>
-          </ul>
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav w-100 justify-content-between">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.html">Categorías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sell.html">Vender</a>
+                    </li>
+                    <li class="nav-item">
+                        <span id="userDisplay" class="nav-link"></span>
+                    </li>
+                    <li class="nav-item">
+                        <abbr title="Cerrar sesión"><button class="btn btn-dark" id="logout">
+                                <i class="fa-solid fa-right-from-bracket" style="color: #f09100;"></i>
+                            </button></abbr>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
-    <main class="pb-5 container">
-      <br>
-      <h1 class="titulo-autos">Productos</h1>
-      <br>
-      <p class="parrafo-autos">Veras aqui todos los productos relacionados con la categoria <strong>Autos</strong></p>
-      <br>
-      <div class="container" id="productos">
-      </div>
+
+    <main class="pb-5">
+        <div class="text-center p-4">
+            <h1 id="tituloProducto"></h1>
+            <p class="parrafo-productos">Veras aqui todos los productos relacionados con la categoria <span
+                    id="tituloProducto2"></span></p>
+        </div>
+
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col text-end">
+                    <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
+                        <input type="radio" class="btn-check" name="options" id="ordenarAscendente">
+                        <label class="btn btn-light" for="ordenarAscendente"><i
+                                class="fas fa-sort-amount-up"></i></label>
+                        <input type="radio" class="btn-check" name="options" id="ordenarDescendente">
+                        <label class="btn btn-light" for="ordenarDescendente"><i
+                                class="fas fa-sort-amount-down"></i></label>
+                        <input type="radio" class="btn-check" name="options" id="ordenarRelevancia" checked>
+                        <label class="btn btn-light" for="ordenarRelevancia"><i class="fas fa-star"></i></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-10 col-md-6 mb-1">
+                    <div class="row justify-content-between">
+                        <div class="col-6">
+                            <input type="search" class="form-control" id="search" placeholder="Buscar">
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col">
+                                    <input class="form-control" type="number" placeholder="Precio min." id="precioMin">
+                                </div>
+                                <div class="col">
+                                    <input class="form-control" type="number" placeholder="Precio máx." id="precioMax">
+                                </div>
+                                <div class="col">
+                                    <button id="limpiarFiltroPrecio" class="btn btn-error boton-filtrar">
+                                        <i class="fas fa-times-circle"></i> <!-- Icono de borrar -->
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="productos">
+        </div>
     </main>
+
     <footer class="text-muted">
-      <div class="container">
-        <p class="float-end">
-          <a href="#">Volver arriba</a>
-        </p>
-        <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-      </div>
+        <div class="container">
+            <p class="float-end">
+                <a href="#">Volver arriba</a>
+            </p>
+            <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a
+                    Programar</a></p>
+        </div>
     </footer>
     <div id="spinner-wrapper">
-      <div class="lds-ring">
-      </div>
+        <div class="lds-ring">
+        </div>
     </div>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/products.js"></script>
-  </body>
-  
-  </html>
+</body>
+
+</html>
