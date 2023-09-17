@@ -32,7 +32,7 @@ function MostrarData(dataArray) {
     productos.innerHTML = "";
     for (const item of dataArray) {
         productos.innerHTML += `
-        <div class="cuadrante">
+        <div onclick="setProdID(${item.id})" id='${item.id}' class="cuadrante cursor-active">
           <img src="${item.image}">
           <div class="contenido">
             <h2>${item.name} ${item.currency} ${item.cost}</h2>
