@@ -33,13 +33,24 @@
                     <li class="nav-item">
                         <a class="nav-link" href="sell.html">Vender</a>
                     </li>
-                    <li class="nav-item">
-                        <span id="userDisplay" class="nav-link"></span>
-                    </li>
-                    <li class="nav-item">
-                        <abbr title="Cerrar sesión"><button class="btn btn-dark" id="logout">
-                            <i class="fa-solid fa-right-from-bracket" style="color: #f09100;"></i>
-                        </button></abbr>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="userDisplay" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuDarkLink">
+                            <li>
+                                <a class="dropdown-item" href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Mi carrito</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="my-profile.html"><i class="fa-solid fa-user"></i> Mi perfil</a>
+                            </li>
+                            <li><div class="botones_dark"><button class="switch" id="switch"> <i class="fa-regular fa-sun"></i> <i class="fa-solid fa-moon"></i></button></div></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <button class="dropdown-item" href="login.html" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+                            </li>
+                           
+                        </ul>
                     </li>
                 </ul>
                 

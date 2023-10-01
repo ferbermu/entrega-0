@@ -59,4 +59,7 @@ let getJSONData = function (url) {
             hideSpinner();
             return result;
         });
+        
 }
+
+

@@ -7,8 +7,8 @@ const URLComentarios = PRODUCT_INFO_COMMENTS_URL + prodID + EXT_TYPE
 function mostrarComentarios() {
     let contenidoHTML = ""
     comentarios.forEach((comentario) => {
-        contenidoHTML += 
-        `<div class="card mb-3">
+        contenidoHTML +=
+            `<div class="card mb-3">
             <div class="card-body">
                 <div class="d-flex">
                     <div class="w-100">
@@ -129,7 +129,8 @@ function mostrarDatosDelProducto(productData) {
     let productDescription = document.getElementById("descripcion-producto");
     let productCategory = document.getElementById("categoria-producto");
     let productSoldCount = document.getElementById("vendidos-producto");
-    let productImages = document.getElementById("imagenes-producto");
+    //let productImages = document.getElementById("imagenes-producto");
+    let productRelacionados = document.getElementById("relacionados");
 
     productName.innerHTML = `${productData.name}`;
     productPrice.innerHTML = `<br><strong>Precio:</strong> <br>${productData.currency} ${productData.cost}`;
@@ -137,17 +138,33 @@ function mostrarDatosDelProducto(productData) {
     productCategory.innerHTML = `<br><strong>Categoría:</strong> <br>${productData.category}`;
     productSoldCount.innerHTML = `<br><strong>Cantidad de vendidos:</strong><br> ${productData.soldCount}`;
 
-    for (let imageSrc of productData.images) {
-        let imageDiv = document.createElement("div") ;
-        let imgElement = document.createElement("img");
+    // Carousel imagenes
+    let carouselImgs = document.getElementById("carouselImgs");
+    let carouselBtns = document.getElementById("carouselBtns");
+    carouselImgs.innerHTML = "";
+    carouselBtns.innerHTML = "";
 
-        imageDiv.classList.add("col-md-3");
+    for (let i = 0; i < productData.images.length; i++) {
+        carouselImgs.innerHTML += `<div class="carousel-item">
+            <img src="${productData.images[i]}" class="d-block w-100">
+        </div>`
+        carouselBtns.innerHTML += `<button type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="${i}" aria-label="Slide ${i + 1}"></button>`
 
-        imgElement.classList.add("img-thumbnail");
+    }
+    carouselBtns.childNodes[0].setAttribute("aria-current", "true");
+    carouselBtns.childNodes[0].classList.add("active");
+    carouselImgs.childNodes[0].classList.add("active");
+    //FIN Carousel
 
-        imgElement.src = imageSrc;
-        imageDiv.appendChild(imgElement);
-        productImages.appendChild(imageDiv);
+    for (let prod of productData.relatedProducts) {
+        productRelacionados.innerHTML += `
+        <div class="col-md-3 mb-2">
+            <button class="btn btn-light btn-block custom-btn" onclick="setProdID(${prod.id})">
+                <h4 class="fw-bold">${prod.name}</h4>
+                <img src="${prod.image}" alt="${prod.name}" class="img-thumbnail"/>
+            </button>
+        </div>`;
     }
 }
 
@@ -159,4 +176,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+let btnSwitch = document.getElementById("switch");
 
+// Recupera el estado del modo oscuro desde el localStorage
+const isDarkMode = localStorage.getItem("darkMode") === "true";
+
+// Aplica el modo oscuro si estaba activado
+if (isDarkMode) {
+    document.body.classList.add("dark");
+    btnSwitch.classList.add("active");
+}
+
+// Agrega un evento de clic al botón
+btnSwitch.addEventListener("click", () => {
+    // Alterna la clase "dark" en el cuerpo del documento
+    document.body.classList.toggle("dark");
+
+    // Alterna la clase "active" en el propio botón
+    btnSwitch.classList.toggle("active");
+
+    // Guarda el estado actual del modo oscuro en el localStorage
+    const isDarkModeActive = document.body.classList.contains("dark");
+    localStorage.setItem("darkMode", isDarkModeActive);
+});

@@ -34,13 +34,31 @@
                     <li class="nav-item">
                         <a class="nav-link" href="sell.html">Vender</a>
                     </li>
-                    <li class="nav-item">
-                        <span id="userDisplay" class="nav-link"></span>
-                    </li>
-                    <li class="nav-item">
-                        <abbr title="Cerrar sesión"><button class="btn btn-dark" id="logout">
-                                <i class="fa-solid fa-right-from-bracket" style="color: #f09100;"></i>
-                            </button></abbr>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="userDisplay" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"></a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuDarkLink">
+                            <li>
+                                <a class="dropdown-item" href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Mi
+                                    carrito</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="my-profile.html"><i class="fa-solid fa-user"></i> Mi
+                                    perfil</a>
+                            </li>
+                            <li>
+                                <div class="botones_dark"><button class="switch" id="switch"> <i
+                                            class="fa-regular fa-sun"></i> <i class="fa-solid fa-moon"></i></button>
+                                </div>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <button class="dropdown-item" href="login.html" id="logout"><i
+                                        class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -54,22 +72,38 @@
             <div id="categoria-producto"></div>
             <div id="vendidos-producto"></div>
             <br> <strong>Imagenes ilustrativas</strong>
-            <div id="imagenes-producto" class="row"></div>
 
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselBtns" class="carousel-indicators dropBorder"></div>
+                <div id="carouselImgs" class="carousel-inner"></div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon dropBorder" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon dropBorder" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <!--<div id="imagenes-producto" class="row"></div>-->
+            <br>
+            <br>
             <h4 class="text-center m-4">Comentarios</h4>
             <div id="comentarios"> </div>
 
             <form action="" method="post">
                 <div>
-                    <h2 id="subcom">Comentar</h2>
+                    <h3>Comentar</h3>
                     <p>Tu opinión:</p>
                 </div>
                 <div class="form-floating">
                     <textarea class="form-control" id="texto" placeholder="texto" rows="10"
-                        style="height:100%;"></textarea>
+                        style="height:150px; width:800px;"></textarea>
                     <label for="texto">Comentario</label>
                 </div>
-                <div>
+                <div id="puntos">
                     <label for="puntos">Tu puntuación:</label>
                 </div>
 
@@ -82,6 +116,11 @@
                     <input type="button" value="Comentar" id="comentar" class="btn btn-primary">
                 </div>
             </form>
+        </div>
+        <br>
+        <div class="container">
+            <h3>Productos relacionados</h3>
+            <div id="relacionados" class="row"></div>
         </div>
     </main>
     <footer class="text-muted">

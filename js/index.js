@@ -21,3 +21,26 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location = "products.html"
     });
 });
+
+
+let btnSwitch = document.getElementById("switch");
+
+// Recupera el estado del modo oscuro desde el localStorage
+const isDarkMode = localStorage.getItem("darkMode") === "true";
+
+// Aplica el modo oscuro si estaba activado
+if (isDarkMode) {
+  btnSwitch.classList.add("active");
+}
+
+// Agrega un evento de clic al botón
+btnSwitch.addEventListener("click", () => {
+   
+
+    // Alterna la clase "active" en el propio botón
+    btnSwitch.classList.toggle("active");
+
+    // Guarda el estado actual del modo oscuro en el localStorage
+    const isDarkModeActive = document.body.classList.contains("dark");
+    localStorage.setItem("darkMode", isDarkModeActive);
+});
