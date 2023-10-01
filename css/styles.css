@@ -487,8 +487,18 @@ body {
 
     .vendidos {
         background-color: #191919;
-        color: white
+
+        color:white;
+     }
+   
+     #productos .vendidos {
+       background-color: #191919;
+       color: white;
+     }
+     #productos .cuadrante:hover {
+        filter: brightness(1);
     }
+
 
     .card-body {
         background-color: #191919;
@@ -508,6 +518,7 @@ body {
 
 .btn h5 {
     white-space: nowrap;
+
 }
 
 
