@@ -6,8 +6,8 @@ const isDarkMode = localStorage.getItem("darkMode") === "true";
 
 // Aplica el modo oscuro si estaba activado
 if (isDarkMode) {
-  document.body.classList.add("dark");
-  btnSwitch.classList.add("active");
+    document.body.classList.add("dark");
+    btnSwitch.classList.add("active");
 }
 
 // Agrega un evento de clic al botón
@@ -151,7 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("tituloProducto").innerHTML = nombre
     document.getElementById("tituloProducto2").innerHTML = nombre
-
 });
 
 function clean(arg) {

@@ -1,4 +1,5 @@
 let comentarios = []
+let producto = null;
 const prodID = localStorage.getItem("prodID")
 const URLComentarios = PRODUCT_INFO_COMMENTS_URL + prodID + EXT_TYPE
 
@@ -96,14 +97,42 @@ document.addEventListener("DOMContentLoaded", () => {
             'Enviado!',
             'Nuevo comentario guardado con exito',
             'success'
-        )
+        );
 
         document.getElementById("texto").value = "";
         document.getElementById("stars").value = "";
         mostrarComentarios();
-    })
+    });
 
-})
+    let productId = localStorage.getItem("prodID");
+
+    if (productId) {
+        obtenerDatosDelProducto(productId);
+    }
+
+    let carr = JSON.parse(localStorage.getItem("prodsCarrito")) || []
+
+    if (carr.find(e => e.id == prodID)) {
+        document.getElementById("comprar").setAttribute("disabled", "")
+    } else {
+        document.getElementById("comprar").addEventListener("click", () => {
+            let arr = JSON.parse(localStorage.getItem("prodsCarrito")) || []
+            arr.push({
+                id: prodID,
+                name: producto.name,
+                count: 1,
+                unitCost: producto.cost,
+                currency: producto.currency,
+                image: producto.images[0]
+            });
+            localStorage.setItem("prodsCarrito", JSON.stringify(arr));
+            Swal.fire("Agregado al carrito",
+                "Se puede modificar la cantidad desde el 'carrito'",
+                "success")
+            document.getElementById("comprar").setAttribute("disabled", "")
+        });
+    }
+});
 
 function obtenerDatosDelProducto(productId) {
     let productInfoUrl = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
@@ -116,14 +145,16 @@ function obtenerDatosDelProducto(productId) {
             throw new Error("No se pudo obtener la información del producto.");
         })
         .then(productData => {
-            mostrarDatosDelProducto(productData);
+            producto = productData;
+            mostrarDatosDelProducto();
         })
         .catch(error => {
             console.error(`Error: ${error.message}`);
         });
 }
 
-function mostrarDatosDelProducto(productData) {
+function mostrarDatosDelProducto() {
+    productData = producto;
     let productName = document.getElementById("nombre-producto");
     let productPrice = document.getElementById("precio-producto");
     let productDescription = document.getElementById("descripcion-producto");
@@ -167,14 +198,6 @@ function mostrarDatosDelProducto(productData) {
         </div>`;
     }
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-    let productId = localStorage.getItem("prodID");
-
-    if (productId) {
-        obtenerDatosDelProducto(productId);
-    }
-});
 
 let btnSwitch = document.getElementById("switch");
 

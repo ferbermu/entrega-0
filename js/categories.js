@@ -165,3 +165,23 @@ btnSwitch.addEventListener("click", () => {
     const isDarkModeActive = document.body.classList.contains("dark");
     localStorage.setItem("darkMode", isDarkModeActive);
 });
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    function handleScreenSize() {
+        const screenWidth = window.innerWidth || document.documentElement.clientWidth;
+        const listaCategoriasElement = document.getElementById('lista_categorias');
+        if (screenWidth < 700) {
+            listaCategoriasElement.classList.remove('row');
+        } else {
+            if (!listaCategoriasElement.classList.contains('row')) {
+                listaCategoriasElement.classList.add('row');
+            }
+        }
+    }
+    setTimeout(() => {
+        handleScreenSize();
+    }, 2000);
+
+    window.addEventListener('resize', handleScreenSize);
+});

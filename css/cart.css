@@ -1,0 +1,15 @@
+.cart-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 3fr 1fr 1fr 1fr; 
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .cart-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}

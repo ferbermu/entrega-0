@@ -35,29 +35,22 @@
                         <a class="nav-link" href="sell.html">Vender</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="userDisplay" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false"></a>
+                        <a class="nav-link dropdown-toggle" id="userDisplay" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuDarkLink">
                             <li>
-                                <a class="dropdown-item" href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Mi
-                                    carrito</a>
+                                <a class="dropdown-item" href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Mi carrito</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="my-profile.html"><i class="fa-solid fa-user"></i> Mi
-                                    perfil</a>
+                                <a class="dropdown-item" href="my-profile.html"><i class="fa-solid fa-user"></i> Mi perfil</a>
                             </li>
-                            <li>
-                                <div class="botones_dark"><button class="switch" id="switch"> <i
-                                            class="fa-regular fa-sun"></i> <i class="fa-solid fa-moon"></i></button>
-                                </div>
-                            </li>
+                            <li><div class="botones_dark"><button class="switch" id="switch"> <i ></i> <i ></i></button></div></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <button class="dropdown-item" href="login.html" id="logout"><i
-                                        class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+                                <button class="dropdown-item" href="login.html" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
                             </li>
+                           
                         </ul>
                     </li>
                 </ul>
@@ -66,7 +59,10 @@
     </nav>
     <main>
         <div class="container">
-            <h1 id="nombre-producto"></h1>
+            <div class="row">
+                <h1 class="col" id="nombre-producto"></h1>
+                <button id="comprar" class="col col-md-2 col-lg-1 btn btn-primary m-2">Agregar al carrito</button>
+            </div>
             <div id="precio-producto"></div>
             <div id="descripcion-producto"></div>
             <div id="categoria-producto"></div>
@@ -100,7 +96,7 @@
                 </div>
                 <div class="form-floating">
                     <textarea class="form-control" id="texto" placeholder="texto" rows="10"
-                        style="height:150px; width:800px;"></textarea>
+                        style="height:15%; width:80%;"></textarea>
                     <label for="texto">Comentario</label>
                 </div>
                 <div id="puntos">
