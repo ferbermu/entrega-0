@@ -518,6 +518,10 @@ body {
         background-color: #191919;
         color: white;
     }
+.modal-content{
+    background-color: #191919;
+        color: white;
+}
 
 }
 
@@ -551,4 +555,9 @@ body {
 
 .fa-trash:hover{
     cursor: pointer;
+}
+
+.is-invalid{
+   border-color: red;
+   border-width: 3px;
 }
