@@ -10,7 +10,10 @@
     <script src="https://kit.fontawesome.com/7b32b404d1.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/profile-form.css">
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -48,22 +51,27 @@
                         <a class="nav-link" href="sell.html">Vender</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="userDisplay" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                        <a class="nav-link dropdown-toggle" id="userDisplay" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"></a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuDarkLink">
                             <li>
-                                <a class="dropdown-item" href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Mi carrito</a>
+                                <a class="dropdown-item" href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Mi
+                                    carrito</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="my-profile.html"><i class="fa-solid fa-user"></i> Mi perfil</a>
+                                <a class="dropdown-item" href="my-profile.html"><i class="fa-solid fa-user"></i> Mi
+                                    perfil</a>
                             </li>
-                            <li><div class="botones_dark"><button class="switch" id="switch"> <i ></i> <i ></i></button></div></li>
+                            <li>
+                                <script src="js/darkMode.js"></script>
+                            </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <button class="dropdown-item" href="login.html" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+                                <button class="dropdown-item" href="login.html" id="logout"><i
+                                        class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
                             </li>
-                           
                         </ul>
                     </li>
                 </ul>
@@ -71,10 +79,45 @@
         </div>
     </nav>
     <main>
-        <div class="container">
-            <div class="alert alert-danger text-center" role="alert">
-                <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-            </div>
+        <div>
+            <form class="form" id="formulario">
+                <p class="title">Perfil </p>
+                <div class="imagen"><img src="img/image.png" style="width:5vw;" id="profile-image" alt=""></div>
+                <div class="mb-3">
+                    <label for="formFileSm" class="form-label">Cambiar foto de perfil </label>
+                    <input class="form-control form-control-sm" id="formFileSm" type="file" accept="image/*"
+                        onchange="cambiarFotoDePerfil()">
+                </div>
+                <p class="message">Completa tus datos personales.</p>
+                <div class="flex">
+                    <label>
+                        <input required="" placeholder="" type="text" class="input needs-validation" id="nombre">
+                        <span>Nombre*</span>
+                    </label>
+                    <label>
+                        <input required=false type="text" class="input" id="segundonombre">
+                        <span>Segundo nombre</span>
+                    </label>
+                </div>
+                <label>
+                    <input required="" placeholder="" type="text" class="input needs-validation" id="apellido">
+                    <span>Apellido*</span>
+                </label>
+                <label>
+                    <input required=false type="text" class="input" id="segundoapellido">
+                    <span>Segundo apellido</span>
+                </label>
+                <label>
+                    <input required="" placeholder="" type="email" class="input needs-validation" id="email">
+                    <span>Email*</span>
+                </label>
+                <label>
+                    <input required=false placeholder="" type="tel" class="input" id="telefono">
+                    <span>Teléfono de contacto</span>
+                </label>
+                <p class="obligatorio">Los campos marcados con asterisco * son obligatorios. </p>
+                <button class="submit" id="BotonPerfil">Guardar Cambios</button>
+            </form>
         </div>
     </main>
     <footer class="text-muted">

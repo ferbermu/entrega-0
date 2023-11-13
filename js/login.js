@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             'mail': mail,
             'pass': pass
         };
-        
+
         if (mail.length > 0 && pass.length > 0) {
             try {
                 localStorage.setItem("user", JSON.stringify(session));
@@ -19,16 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
             location.href = "./index.html";
         } else {
             Swal.fire("Error!", "Verifique email y contraseña\n(no pueden ser vacios)", "error");
-            //alert("Verifique email y contraseña")
         }
     });
-    let btnSwitch = document.getElementById("switch");
-
-btnSwitch.addEventListener("click", ()=>{
-    document.body.classList.toggle("dark")
-    btnSwitch.classList.toggle("active")
-})
 });
 
-
-
+//guardar email del usuario en localStorage
+function guardarDato() {
+    const email = document.getElementById("inputEmail").value;
+    localStorage.setItem("email", email);
+}

@@ -35,22 +35,27 @@
                         <a class="nav-link" href="sell.html">Vender</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="userDisplay" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                        <a class="nav-link dropdown-toggle" id="userDisplay" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"></a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuDarkLink">
                             <li>
-                                <a class="dropdown-item" href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Mi carrito</a>
+                                <a class="dropdown-item" href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Mi
+                                    carrito</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="my-profile.html"><i class="fa-solid fa-user"></i> Mi perfil</a>
+                                <a class="dropdown-item" href="my-profile.html"><i class="fa-solid fa-user"></i> Mi
+                                    perfil</a>
                             </li>
-                            <li><div class="botones_dark"><button class="switch" id="switch"> <i ></i> <i ></i></button></div></li>
+                            <li>
+                                <script src="js/darkMode.js"></script>
+                            </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <button class="dropdown-item" href="login.html" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+                                <button class="dropdown-item" href="login.html" id="logout"><i
+                                        class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
                             </li>
-                           
                         </ul>
                     </li>
                 </ul>
@@ -68,7 +73,6 @@
             <div id="categoria-producto"></div>
             <div id="vendidos-producto"></div>
             <br> <strong>Imagenes ilustrativas</strong>
-
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div id="carouselBtns" class="carousel-indicators dropBorder"></div>
                 <div id="carouselImgs" class="carousel-inner"></div>
@@ -88,7 +92,6 @@
             <br>
             <h4 class="text-center m-4">Comentarios</h4>
             <div id="comentarios"> </div>
-
             <form action="" method="post">
                 <div>
                     <h3>Comentar</h3>
@@ -102,7 +105,6 @@
                 <div id="puntos">
                     <label for="puntos">Tu puntuación:</label>
                 </div>
-
                 <div class="form-floating">
                     <input type="range" class="rating" id="stars" min="1" max="5" placeholder="1" value="1"
                         oninput="this.style.setProperty('--value', this.value)">
